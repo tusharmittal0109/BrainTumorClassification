@@ -11,11 +11,11 @@ my_path = os.path.abspath(os.path.dirname(__file__))
 BrainTumorClassifier = os.path.join(my_path, "../static/BrainTumorClassifier/BrainTumorClassifier.h5")
 
 
-ALLOWED_EXTENSIONS = set(['jpg'])
+# ALLOWED_EXTENSIONS =(['jpg'])
 def allowed_file(filename):
     """Only .jpg files allowed"""
     return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+           filename.rsplit('.', 1)[1].lower()=='jpg'
 
 def image_classification(image):
     """Apply image classifier"""
