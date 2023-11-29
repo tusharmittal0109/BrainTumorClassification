@@ -45,22 +45,36 @@ def dashboard():
     """Main Dashboard"""
     return render_template("dashboard.html")
 
-@app.route('/predict', methods=['GET', 'POST'])
+# @app.route('/predict', methods=['GET', 'POST'])
+# def predict():
+#     """Image Classification"""
+#     if request.method == 'POST' and 'file' in request.files:
+#         image = request.files['file']
+#         # .jpg file extension check
+#         if allowed_file(image.filename):
+#             # Apply neural network
+#             guess = image_classification(image)
+
+#             return jsonify({'guess': guess})
+
+#         else:
+#             return jsonify({'error': "Only .jpg files allowed"})
+#     else:
+#         return jsonify({'error': "Please upload a .jpg file"})
+
+@app.route('/predict', methods=['POST'])
 def predict():
-    """Image Classification"""
-    if request.method == 'POST' and 'file' in request.files:
+    if 'file' in request.files:
         image = request.files['file']
-        # .jpg file extension check
+
+        # Debugging: Check the uploaded filename
+        print(f"Uploaded filename: {image.filename}")
+
         if allowed_file(image.filename):
-            # Apply neural network
             guess = image_classification(image)
-
             return jsonify({'guess': guess})
-
         else:
             return jsonify({'error': "Only .jpg files allowed"})
-    else:
-        return jsonify({'error': "Please upload a .jpg file"})
 
 # @app.route('/blog')
 # def blog():
