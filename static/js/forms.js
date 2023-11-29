@@ -13,14 +13,14 @@ $(function() {
             processData: false,
             success: function(data) {
                 $('.loader').hide();
-                if (data.guess === 'Cat') {
+                if (data.guess === 'No') {
 
-                        $('#cat').show();
+                        $('#no').show();
 
                 }
 
-                else if (data.guess === 'Dog') {
-                        $('#dog').show();
+                else if (data.guess === 'Yes') {
+                        $('#yes').show();
 
                 }
 
