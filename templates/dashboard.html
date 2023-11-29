@@ -4,18 +4,18 @@
 <div class="row row-title">
     <div class="card card-title">
         <div class="row row-blue">
-            <h1 id="Text">Cat Dog Image Classifier </h1>
+            <h1 id="Text">Brain Tumor Detection </h1>
         </div>
         <div class="row  text-center row-text">
-            <p>Let me predict if it's a Cat or Dog on your Image</p>
+            <p>Predict if your MRI scan shows Brain Tumor</p>
         </div>
         <div class="row row-cards">
             <div class="col-xs-6 col-sm-6 col-md-6 text-center">
-                <img src="{{url_for('static', filename='img/cat.jpg')}}" class="img-responsive img-pet"/>
+                <img src="{{url_for('static', filename='img/brain.jpg')}}" class="img-responsive img-pet"/>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 text-center">
+            <!-- <div class="col-xs-6 col-sm-6 col-md-6 text-center">
                 <img src="{{url_for('static', filename='img/dog.jpg')}}" class="img-responsive img-pet"/>
-            </div>
+            </div> -->
         </div>
         <div class="row plain-element">
             <form id="upload-file" method="POST" enctype="multipart/form-data">
@@ -45,7 +45,7 @@
 
                 </div> -->
                 <div class="card-content">
-                    <h5>It's a Cat</h5>
+                    <h5>yes tumor</h5>
                 </div>
             </div>
             <div class="card card-prediction" id="dog">
@@ -54,7 +54,7 @@
 
                 </div> -->
                 <div class="card-content">
-                    <h5>It's a Dog</h5>
+                    <h5>No tumor</h5>
                 </div>
             </div>
             <h5 id="error">Only .jpg files allowed</h5>
