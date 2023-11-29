@@ -8,7 +8,7 @@ from skimage.transform import resize
 
 # Path to saved classifier
 my_path = os.path.abspath(os.path.dirname(__file__))
-cat_dog_classifier = os.path.join(my_path, "../static/cat_dog_classifier/cat_dog_classifier_v1.h5")
+BrainTumorClassifier = os.path.join(my_path, "../static/BrainTumorClassifier/BrainTumorClassifier.h5")
 
 
 ALLOWED_EXTENSIONS = set(['jpg'])
@@ -22,12 +22,12 @@ def image_classification(image):
     # clear Tensor session to avoid error
     keras.backend.clear_session()
     # load saved model
-    image_classifier = load_model(cat_dog_classifier)
+    image_classifier = load_model(BrainTumorClassifier)
     # prepare labels
-    class_labels = {0: 'Cat', 1: 'Dog'}
+    class_labels = {0: 'No', 1: 'Yes'}
     # read photo & transform it into array
     img = imread(image)
-    img = resize(img, (128, 128))
+    img = resize(img, (224, 224))
     img = np.expand_dims(img, axis=0)
     if np.max(img) > 1:
         img = img / 255.0
