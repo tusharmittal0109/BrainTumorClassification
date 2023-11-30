@@ -39,12 +39,14 @@ def image_classification(image):
     img = imread(image)
     print(f"Image shape: {img.shape}")
     img = resize(img, (224, 224))
+    # img = img.convert("RGB")
     img = np.expand_dims(img, axis=0)
     if np.max(img) > 1:
         img = img / 255.0
+    img = np.array(img)
     # Predict class
     prediction = image_classifier.predict(img)
-    percent_values = prediction.tolist()
+    percent_values = prediction.tolist() 
     print(f"Raw prediction values: {prediction}")
 
     # Display labels

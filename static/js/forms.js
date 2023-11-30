@@ -2,8 +2,8 @@ $(function() {
     $('#upload-file-btn').click(function() {
         var form_data = new FormData($('#upload-file')[0]);
         $('.loader').show();
-        $('#cat').hide();
-        $('#dog').hide();
+        $('#no').hide();
+        $('#yes').hide();
         $.ajax({
             type: 'POST',
             url: '/predict',
